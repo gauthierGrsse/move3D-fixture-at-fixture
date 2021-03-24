@@ -37,6 +37,8 @@ local function clone()
         end
     end
 
+    inFix = getobj.handle("Fixture " .. inFixture)
+
     if inFix and working == 0 then
         feedback("Clone 3D position fixture " .. inFixture .. " to fixture " .. outFixture)
 
@@ -48,9 +50,6 @@ local function clone()
         for x = 15, 20, 1 do -- the columns for the 3D position are from 15 to 20
             local temp = gma.show.property.get(getobj.child(inFix, 0), x) -- get the value of the column
             coord[#coord + 1] = temp -- store them in an array
-            
-            feedback(temp)
-            feedback(#coord, " / ", coord[#coord])
         end
         echo("Get 3D position of fixture A")
 
